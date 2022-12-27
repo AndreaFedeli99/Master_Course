@@ -6,17 +6,18 @@
 # Hint. Use a generator for the factorial and a comprehension for the series.
 
 import math
-import functools
 
 def fact(n):
     res = 1
+    index = 1
     while n > 0:
         yield res
-        res *= n
+        res *= index
+        index += 1
         n -= 1
 
 def sin(x, n):
-    return sum([[[-(x**i)/f if index%2 != 0 else (x**i)/f for f in fact(i)][i-1] for i in range(1, 2*n, 2)][index] for index in range(n)])
+    factorial = fact(2*n)
+    return sum([[-x**((index*2)+1)/next(factorial) if index%2 != 0 else x**((index*2)+1)/next(factorial) for i in range(2)][1] for index in range(n)])
 
 print(sin(math.pi, 5))
-
