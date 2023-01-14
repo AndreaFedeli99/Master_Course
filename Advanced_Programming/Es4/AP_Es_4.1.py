@@ -12,16 +12,14 @@ class CustomString(str):
 
     def isPalindrome(self):
         s = self.translate(str.maketrans('', '', string.punctuation)).replace(' ', '').lower()
-        first_half = list(it.islice(s, 0, int(len(s) / 2)))
-        second_half = list(it.islice(s, int(len(s) / 2), len(s)))
-        return all([first_half[-i] == second_half[i] for i in range(len(first_half), 0, -1)])
+        return s == s[::-1]
 
     def __sub__(self, other):
         return CustomString(''.join([s for s in self if s not in other]))
 
     def isAnagram(self, words):
         permutations = [''.join(x) for x in it.permutations(self, len(self))]
-        return len(list(it.filterfalse(lambda x: words[x] not in permutations, words))) > 0
+        return any(list(it.filterfalse(lambda x: words[x] not in permutations, words)))
 
 palindrome = CustomString("Red roses run no risk, sir, on Nurse's order.")
 print(palindrome.isPalindrome())
