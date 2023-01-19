@@ -39,6 +39,16 @@ class Person:
     def __repr__(self):
         return self._name + ' ' + self._lastname + ', ' + str(self._birthday)
 
+class grade_descriptor:
+
+    def __get__(self, obj, objType = None):
+        obj._mark_avg = reduce(lambda m1, m2: m1 + m2, obj.get_lectures().values()) / len(obj.get_lectures().keys())
+        return obj._mark_avg
+
+    def __delete__(self, obj):
+        obj.set_lectures({})
+        obj._mark_avg = 0
+
 class Student(Person):
 
     def __init__(self, name, lastname, birthday, lectures):
@@ -61,6 +71,25 @@ class Student(Person):
         return super().__repr__() + ", subjects: " + str(self.get_lectures())
 
     grade_average = property(calculate_average, None, remove_lectures, "Manage the marks average")
+    grade_average_desc = grade_descriptor()
+
+class salary_descriptor:
+
+    def __init__(self, time, priv_name):
+        self._time = time
+        self.private_name = priv_name
+
+    def __get__(self, obj, objType = None):
+        value = getattr(obj, self.private_name)
+        return value
+    
+    def __set__(self, obj, value = None):
+        setattr(obj, self.private_name, value)
+        obj.set_pay_per_hour(value / self._time)
+    
+    def __delete__(self, obj):
+        setattr(obj, self.private_name, 0)
+        obj.set_pay_per_hour(0)
 
 class Worker(Person):
 
@@ -72,6 +101,10 @@ class Worker(Person):
     def __init__(self, name, lastname, birthday, pay_per_hour):
         super().__init__(name, lastname, birthday)
         self.__pay_per_hour = pay_per_hour
+        self.ds = 0
+        self.ws = 0
+        self.ms = 0
+        self.ys = 0
 
     def get_pay_per_hour(self):
         return self.__pay_per_hour
@@ -96,18 +129,31 @@ class Worker(Person):
         return super().__repr__() + ", pph: " + str(self.get_pay_per_hour())
 
     day_salary = property(compute_total_pay(wh_per_day), update_pay_per_hour(wh_per_day), zeroing_pay_per_hour, "Manage the day salary")
+    day_salary_desc = salary_descriptor(wh_per_day, 'ds')
     week_salary = property(compute_total_pay(wh_per_day * wd_per_week), 
                             update_pay_per_hour(wh_per_day * wd_per_week), 
                             zeroing_pay_per_hour, 
                             "Manage the week salary")
+    week_salary_desc = salary_descriptor(wh_per_day * wd_per_week, 'ws')
     month_salary = property(compute_total_pay(wh_per_day * wd_per_week * ww_per_month), 
                             update_pay_per_hour(wh_per_day * wd_per_week * ww_per_month), 
                             zeroing_pay_per_hour, 
                             "Manage the month salary")
+    month_salary_desc = salary_descriptor(wh_per_day * wd_per_week * ww_per_month,'ms')
     year_salary = property(compute_total_pay(wh_per_day * wd_per_week * ww_per_month * wm_per_year), 
                             update_pay_per_hour(wh_per_day * wd_per_week*ww_per_month * wm_per_year), 
                             zeroing_pay_per_hour, 
                             "Manage the year salary")
+    year_salary_desc = salary_descriptor(wh_per_day * wd_per_week*ww_per_month * wm_per_year, 'ys')
+
+class age_descriptor:
+
+    def __get__(self, obj, objType = None):
+        return obj._age
+    
+    def __set__(self, obj, value = None):
+        obj._age = value
+        obj.set_birthday(date.today() - timedelta(value))
 
 class Wizard(Person):
 
@@ -124,7 +170,7 @@ class Wizard(Person):
         return super().__repr__() + ", age: " + str(self.age)
     
     age = property(get_age, set_age, None, "Manage the age")
-
+    age_desc = age_descriptor()
 
 if __name__ == '__main__':
     s = Student('James', 'Brown', date(1997, 5, 17), {'coding': 20, 'operative sistems': 25, 'alghoritms and complexity': 30})
@@ -133,6 +179,7 @@ if __name__ == '__main__':
 
     print(s)
     print(f"Marks average: {s.grade_average}")
+    print(f"Marks average (desc): {s.grade_average_desc}")
 
     print()
 
