@@ -37,6 +37,7 @@ class MyMath:
     x = Symbol('x')
     
     @memorization
+    @logging
     @stack_trace
     def fib(self, n):
         if n < 2:
@@ -44,6 +45,7 @@ class MyMath:
         return self.fib(n - 1) + self.fib(n - 2)
     
     @memorization
+    @logging
     @stack_trace
     def fact(self, n):
         if n <= 1:
@@ -51,6 +53,7 @@ class MyMath:
         return n * self.fact(n - 1)
 
     @memorization
+    @logging
     @stack_trace
     def taylor(self, f, n, x0):
         if n == 0:
