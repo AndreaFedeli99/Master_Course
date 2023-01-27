@@ -16,11 +16,10 @@ def freqs(filename, min_freq):
 
     word_list = regex2.sub('', regex.sub('', content)).split(' ')
     for word in word_list:
-            if word in word_occurrences:
-                word_occurrences[word] += 1
-            else:
-                word_occurrences.update({word: 1})
-    print(word_occurrences)
-    return [item for item in word_occurrences.items() if item[1] > min_freq]
+        if word in word_occurrences:
+            word_occurrences[word] += 1
+        else:
+            word_occurrences.update({word: 1})
+    return sorted([item for item in word_occurrences.items() if item[1] > min_freq], key=lambda x : x[1], reverse=True)
 
-print(freqs("test.txt", 100))
+print(freqs("test.txt", 50))
