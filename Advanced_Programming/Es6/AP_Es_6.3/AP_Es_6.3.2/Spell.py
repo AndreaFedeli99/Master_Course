@@ -53,3 +53,5 @@ if __name__ == '__main__':
     print(p1.__class__.__bases__)
     print(p1)
     print(p1.day_salary_desc)
+    print(p1.month_salary)
+    print(p1.get_pay_per_hour())
