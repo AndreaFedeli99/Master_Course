@@ -101,10 +101,10 @@ class Worker(Person):
     def __init__(self, name, lastname, birthday, pay_per_hour):
         super().__init__(name, lastname, birthday)
         self.__pay_per_hour = pay_per_hour
-        self.ds = 0
-        self.ws = 0
-        self.ms = 0
-        self.ys = 0
+        self.ds = self._pay_per_hour * self.wh_per_day
+        self.ws = self._pay_per_hour * self.wh_per_day * self.wd_per_week
+        self.ms = self._pay_per_hour * self.wh_per_day * self.wd_per_week * self.ww_per_month
+        self.ys = self._pay_per_hour * self.wh_per_day * self.wd_per_week * self.ww_per_month * self.wm_per_year
 
     def get_pay_per_hour(self):
         return self.__pay_per_hour
