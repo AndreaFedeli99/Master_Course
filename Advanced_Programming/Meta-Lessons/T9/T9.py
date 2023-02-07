@@ -62,5 +62,5 @@ def translate_phrases(fn, chuck_l, translations):
             res.clear()
                 
 if __name__ == '__main__':
-    translations = init_word_dict('Università\Advanced_Programming\Meta-Lessons\T9\dictionary.txt', CHUNK_LENGTH)
-    translate_phrases('Università\Advanced_Programming\Meta-Lessons\T9\\text.txt', CHUNK_LENGTH, translations)
+    translations = init_word_dict('dictionary.txt', CHUNK_LENGTH)
+    translate_phrases('text.txt', CHUNK_LENGTH, translations)
