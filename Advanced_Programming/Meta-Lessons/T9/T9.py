@@ -3,8 +3,6 @@
 # Note: each number must be considered like it is pressed also more than one time.
 # IMPORTANT: a brute force solution and using of itertools are forbidden.
 
-import time
-
 letters_to_number = {'a': '2', 'b': '2', 'c': '2',
                      'd': '3', 'e': '3', 'f': '3',
                      'g': '4', 'h': '4', 'i': '4',
