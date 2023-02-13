@@ -36,7 +36,7 @@ def get_combinations(l1, l2):
     return [[phrase[len(phrase) - 1] + ' ' + word] for phrase in l1 for word in l2]
 
 def print_translations(t):
-    with open('Università\Advanced_Programming\Meta-Lessons\T9\\result.txt', mode='a+', encoding='utf-8') as f:
+    with open('result.txt', mode='a+', encoding='utf-8') as f:
         for phrases in t:
             for phrase in phrases:
                 f.write(phrase + '\n')
