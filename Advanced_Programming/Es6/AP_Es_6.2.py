@@ -5,8 +5,10 @@
 # 3. @stack_trace applied to a method prints its stack trace, i.e., the list of calls made to carry out the invocation.
 
 from sympy import *
+from functools import wraps
 
 def memorization(method):
+    @wraps(method)
     def inner(*args):
         if args in inner.cache.keys():
             return inner.cache[args]
@@ -16,6 +18,7 @@ def memorization(method):
     return inner
 
 def logging(method):
+    @wraps(method)
     def inner(*args):
         with open('log.txt', mode = 'a+', encoding='utf-8') as f:
             f.write(f"logging::__call__ :- {method.__name__}{args[1:]}\n")
@@ -23,6 +26,7 @@ def logging(method):
     return inner
 
 def stack_trace(method):
+    @wraps(method)
     def inner(*args):
         inner.stack = [f'{method.__name__}{args[1:]}'] + inner.stack
         print(inner.stack, sep='\n')
