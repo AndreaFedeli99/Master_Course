@@ -24,7 +24,7 @@ In this exercise, you are asked to write a module `wordle` to automatically play
 - Any new guess should be the first one (alphabetically sorted) among those that could fit the hints provided by the oracle.
 - The number of guessing is unlimited.
 
-As a dictionary you have the file called `wordlist-worlde.txt`. **Note** that this is a full dictionary, e.i. it contains words of any length and with any character.
+As a dictionary you have the file called `wordlist-worldle.txt`. **Note** that this is a full dictionary, e.i. it contains words of any length and with any character.
 
 The `wordle.py` module must contain (at least) the functions:
 
@@ -53,7 +53,7 @@ def print_wordlet(wordlet):
     print("\n")
 
 if __name__ == '__main__':
-    wl = read_words('wordlist-worlde.txt')
+    wl = read_words('wordlist-wordle.txt')
     print_wordlet(wordle('model', 'melon', wl))
     print_wordlet(wordle('slice', 'mount', wl))
     print_wordlet(wordle('crane', 'vowel', wl))
