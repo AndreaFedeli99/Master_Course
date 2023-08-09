@@ -1,6 +1,4 @@
 
-FILE_NAME = "Advanced_Programming\Exams\\2023-06-20\Es1\wordlist-wordle.txt"
-
 WHITE = '\u001b[37;1m'
 GREEN = '\u001b[32;1m'
 YELLOW = '\u001b[33;1m'
@@ -13,10 +11,10 @@ def read_words(fn):
         return [word for word in (w.strip().lower() for w in f) if len(word) == WORDLE_LENGTH and word.isalpha()]
 
 def compute_hints(guess, wordle):
-    return [((guess[i] == wordle[i] and GREEN) or 
-                  (guess[i] != wordle[i] and guess[i] in wordle and YELLOW) or
-                  (guess[i] != wordle[i] and guess[i] not in wordle and WHITE)) 
-                  for i in range(WORDLE_LENGTH)]
+    return [(guess[i] == wordle[i] and GREEN) or 
+            (guess[i] != wordle[i] and guess[i] in wordle and YELLOW) or
+            WHITE
+            for i in range(WORDLE_LENGTH)]
 
 def wordle(guess, wordle, dictionary):
 
@@ -42,9 +40,3 @@ def wordle(guess, wordle, dictionary):
             return compute_wordle(guesses, possible_words[0], possible_words)
     
     return compute_wordle([], guess, dictionary)
-
-if __name__ == '__main__':
-    wl = read_words(FILE_NAME)
-    
-    print('\n'.join(wordle('crane', 'vowel', wl)))
-
