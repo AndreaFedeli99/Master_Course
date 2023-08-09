@@ -4,7 +4,7 @@
 
 ## Exercise 1
 
-**Wordle** is a deceptively simple word puzzle. You're asked to guess the word of the day, which is a five-letter word id English. Wordle basic characteristics canbe summarized in:
+**Wordle** is a deceptively simple word puzzle. You're asked to guess the word of the day, which is a five-letter word in English. Wordle basic characteristics can be summarized in:
 
 - The word is exactly five letters long.
 - It is in English and composed of letters, no punctuation, no numbers or other symbols.
@@ -75,7 +75,7 @@ donut
 mount
 
 crane
-bepop
+bebop
 domed
 fogey
 hotel

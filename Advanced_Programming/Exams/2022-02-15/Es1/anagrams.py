@@ -1,6 +1,6 @@
 from itertools import groupby
 
-FILE_NAME = "Università\Advanced_Programming\Exams\\2022-02-15\Es1\wordlist-text.txt"
+FILE_NAME = "Advanced_Programming\Exams\\2022-02-15\Es1\wordlist-text.txt"
 
 def anagram_key(word):
     return ''.join(sorted(word))
