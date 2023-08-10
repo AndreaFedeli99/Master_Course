@@ -28,27 +28,30 @@ class ExpressionNode:
 
 class calculator:
     def __init__(self, expr):
-        def buildTree(expression):
+        self.expr = expr
+        self.expTree = self.buildTree(list(self.expr))
+        self.currTree = self.expTree
+    
+    def buildTree(self, expression):
             symbol = expression.pop(0)
             
             if symbol.isnumeric():
                 return ExpressionNode(int(symbol))
             else:
                 node = ExpressionNode(symbol)
-                node.left = buildTree(expression)
-                node.right = buildTree(expression)
+                node.left = self.buildTree(expression)
+                node.right = self.buildTree(expression)
                 return node
-        
-        self.expTree = buildTree(list(expr))
 
     def __iter__(self):
-        self.simplification = ""
+        self.currTree = self.buildTree(list(self.expr))
+        return self
 
     def __next__(self):
-        if self.expTree.isLeaf():
+        if self.currTree.isLeaf():
             raise StopIteration
         else:
-            self.expTree.evaluate()
+            self.currTree.evaluate()
 
     def __str__(self):
-        return str(self.expTree)
+        return str(self.currTree)
