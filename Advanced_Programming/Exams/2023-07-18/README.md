@@ -123,18 +123,18 @@ if __name__ == "__main__":
 ### Output:
 
 ```
-longest turtle :- ['turtle', 'eagle', 'elephant', 'tiger', 'rabbit']
+longest turtle  :- ['turtle', 'eagle', 'elephant', 'tiger', 'rabbit']
 shortest turtle :- ['turtle', 'elephant', 'tiger', 'rabbit']
-longest aardvark :- ['aardvark', 'kangaroo', 'octopus', 'sheep', 'pig', 'goldfish', 'hippopotamus', ]
+longest aardvark  :- ['aardvark', 'kangaroo', 'octopus', 'sheep', 'pig', 'goldfish', 'hippopotamus', 'seal', 'lobster', 'rabbit', 'tiger', 'rat', 'turtle', 'eagle', 'elephant']
 shortest aardvark :- ['aardvark', 'kitten']
-longest tiger :- ['tiger', 'rabbit', 'turtle', 'eagle', 'elephant']
+longest tiger  :- ['tiger', 'rabbit', 'turtle', 'eagle', 'elephant']
 shortest tiger :- ['tiger', 'rabbit', 'turtle', 'elephant']
-longest alligator :- ['alligator', 'rabbit', 'tiger', 'rat', 'turtle', 'eagle', 'elephant', ]
+longest alligator  :- ['alligator', 'rabbit', 'tiger', 'rat', 'turtle', 'eagle', 'elephant']
 shortest alligator :- ['alligator', 'rabbit', 'tiger', 'rat', 'turtle', 'elephant']
-longest fish :- ['fish', 'hippopotamus', 'shark', 'kangaroo', 'octopus', 'sheep', 'pig', ]
+longest fish  :- ['fish', 'hippopotamus', 'shark', 'kangaroo', 'octopus', 'sheep', 'pig', 'goldfish', 'hamster', 'rabbit', 'tiger', 'rat', 'turtle', 'eagle', 'elephant']
 shortest fish :- ['fish', 'hippopotamus', 'scorpion']
-longest scropion :- ['scorpion']
-shortest scropion :- ['scorpion']
-longest crocodile :- ['crocodile', 'eagle', 'elephant', 'tiger', 'rabbit', 'turtle']
+longest scorpion  :- ['scorpion']
+shortest scorpion :- ['scorpion']
+longest crocodile  :- ['crocodile', 'eagle', 'elephant', 'tiger', 'rabbit', 'turtle']
 shortest crocodile :- ['crocodile', 'eagle', 'elephant', 'turtle']
 ```

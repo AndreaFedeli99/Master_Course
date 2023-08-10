@@ -30,7 +30,6 @@ class calculator:
     def __init__(self, expr):
         self.expr = expr
         self.expTree = self.buildTree(list(self.expr))
-        self.currTree = self.expTree
     
     def buildTree(self, expression):
             symbol = expression.pop(0)
@@ -44,14 +43,14 @@ class calculator:
                 return node
 
     def __iter__(self):
-        self.currTree = self.buildTree(list(self.expr))
+        self.expTree = self.buildTree(list(self.expr))
         return self
 
     def __next__(self):
-        if self.currTree.isLeaf():
+        if self.expTree.isLeaf():
             raise StopIteration
         else:
-            self.currTree.evaluate()
+            self.expTree.evaluate()
 
     def __str__(self):
-        return str(self.currTree)
+        return str(self.expTree)
