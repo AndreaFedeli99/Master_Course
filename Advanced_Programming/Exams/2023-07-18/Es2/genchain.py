@@ -1,14 +1,8 @@
 
 def getanimals(path="Advanced_Programming/Exams/2023-07-18/Es2/animals.txt"):
-    animals = {}
     with open(path) as f:
-        for animal in f:
-            animal = animal.strip().lower()
-            if animal[0] in animals:
-                animals[animal[0]].append(animal)
-            else:
-                animals[animal[0]] = [animal]
-    return animals
+        words = [word.strip() for word in f.readlines()]
+    return {animal: [w for w in words if animal[-1] == w[0] and w != animal] for animal in words}
 
 animals = getanimals()
 
@@ -21,21 +15,20 @@ class node:
     def isleaf(self):
         return len(self.sons) == 0
     
-    def buildchains(self, current_chain):
-        current_chain.append(self.value)
+    def getbranches(self, current_branch):
+        current_branch.append(self.value)
 
         if self.isleaf():
-            return [current_chain]
+            return [current_branch]
         else:
-            chains = []
+            branch = []
             for son in self.sons:
-                chains.extend(son.buildchains(current_chain[:]))
-            return chains
+                branch.extend(son.getbranches(current_branch[:]))
+            return branch
 
 def genchain(animal, filter=max):
     def buildtree(word, previous):
-        letter = word[-1]
-        valid_words = [] if letter not in animals else [w for w in animals[letter] if (previous is None) or (w not in previous.used_values and w != word)]
+        valid_words = [w for w in animals[word] if (previous is None) or (w not in previous.used_values)]
 
         new_node = node(word)
         if previous is not None:
@@ -48,4 +41,4 @@ def genchain(animal, filter=max):
             return new_node
     
     chains_tree = buildtree(animal, None)
-    return filter(chains_tree.buildchains([]), key=lambda item: len(item))
+    return filter(chains_tree.getbranches([]), key=lambda item: len(item))
