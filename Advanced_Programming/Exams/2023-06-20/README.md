@@ -112,7 +112,7 @@ hatch
 
 Often objects during their life cycle evolves sometimes changing their interface. Stack clearly shows this point:
 
-- Initially the stack is empty and the `pop()` operation is unacceptable and similarly when it is full it cannot accept `push()` operations. Another example is a `Smeagol` that finding the one ring becomes a `Gollum` enabled just swallow and chant "my precious" eveny once and then.
+- Initially the stack is empty and the `pop()` operation is unacceptable and similarly when it is full it cannot accept `push()` operations. Another example is a `Smeagol` that finding the one ring becomes a `Gollum` enabled just swallow and chant "my precious" every once and then.
 
 Normally an object begins with a type and cannot change it without a complete re-installation. Python being a dynamic language is a little bit more flexible and permits to move one instance from a class to another without re-instantiating it. Of course, the messages an object can accept will change when its class changes.
 
@@ -127,16 +127,18 @@ class Stack:
 
     def pop(self):
         self.__top__ -= 1
-        return self.__container_[self.__top__]
+        return self.__container__[self.__top__]
     
     def push(self, e):
         self.__top__ += 1
         self.__container__[self.__top__-1] = e
     
     def __str__(self):
-        return "type :- "+type(self).__name__+",\   "+str(self.__top__)+str(self.__size__)+\\
-            ",\   container :- ["+', '.join(map(str, self.__container__[:self.__top__]))+']'
+        return "type :- "+type(self).__name__+",\t\t"+str(self.__top__)+"/"+str(self.__size__)+\
+            ",\tcontainer :- ["+', '.join(map(str, self.__container__[:self.__top__]))+']'
+```
 
+```py
 class EmptyStack:
     def __init__(self, size):
         self.__size__ = size
@@ -148,9 +150,11 @@ class EmptyStack:
         self.__container__[self.__top__-1] = e
     
     def __str__(self):
-        return "type :- "+type(self).__name__+",\   "+str(self.__top__)+str(self.__size__)+\\
-            ",\   container :- ["+', '.join(map(str, self.__container__[:self.__top__]))+']'
+        return "type :- "+type(self).__name__+",\t"+str(self.__top__)+"/"+str(self.__size__)+\
+            ",\tcontainer :- ["+', '.join(map(str, self.__container__[:self.__top__]))+']'
+```
 
+```py
 class FullStack:
     def __init__(self, size):
         self.__size__ = size
@@ -159,26 +163,31 @@ class FullStack:
 
     def pop(self):
         self.__top__ -= 1
-        return self.__container_[self.__top__]
+        return self.__container__[self.__top__]
     
     def __str__(self):
-        return "type :- "+type(self).__name__+",\   "+str(self.__top__)+str(self.__size__)+\\
-            ",\   container :- ["+', '.join(map(str, self.__container__[:self.__top__]))+']'
+        return "type :- "+type(self).__name__+",\t"+str(self.__top__)+"/"+str(self.__size__)+\
+            ",\tcontainer :- ["+', '.join(map(str, self.__container__[:self.__top__]))+']'
+```
 
+```py
 class Smeagol:
     def __init__(self):
-        self.hasTheRing = False
+        self.hasTheOneRing = False
     
     def found(self, what):
         if what == 'the one ring':
-            self.hasTheRing = True
+            self.hasTheOneRing = True
     
     def __str__(self):
-        return "type :- "+type(self).__name__+",\ Ring "+('🗸' if self.hasTheOneRing else 'x')
+        return "type :- " + type(self).__name__ + \
+            ",\tRing " + ('🗸' if self.hasTheOneRing else 'x')
+```
 
+```py
 class Gollum:
     def __init__(self):
-        self.hasTheRing = True
+        self.hasTheOneRing = True
     
     def chant(self): print("My Precious!!!")
 
@@ -187,10 +196,11 @@ class Gollum:
     def lose_the_ring(self): self.hasTheOneRing = False
     
     def __str__(self):
-        return "type :- "+type(self).__name__+",\ Ring "+('🗸' if self.hasTheOneRing else 'x')
+        return "type :- " + type(self).__name__ + \
+            ",\t\tRing " + ('🗸' if self.hasTheOneRing else 'x')
 ```
 
-The exercise consists of writing a metaclass `ApplySpell` that automatically changes an object class accordingly to some event, e.g., Smeagol gets the one ring, Gollum loses it or a Stack becomes empty/full. NOte that the meta-class should be independent of the event that forces the change.
+The exercise consists of writing a metaclass `ApplySpell` that automatically changes an object class accordingly to some event, e.g., Smeagol gets the one ring, Gollum loses it or a Stack becomes empty/full. **NOTE** that the meta-class should be independent of the event that forces the change.
 
 **Note, the use of any module is FORBIDDEN. The solution that use a module will be considered WRONG**.
 
@@ -214,7 +224,7 @@ if __name__ = "__main__":
     for _ in range(s.__size__):
         s.pop()
         print(s)
-    print("s1 should be a FullyStack!!!")
+    print("s1 should be a FullStack!!!")
     s1 = FullStack(10)
     print(s1)
     try:
