@@ -13,5 +13,5 @@ if __name__ == '__main__':
     ]
 
     q = quadtree(img)
-    print("Image space {0}.".format(len(img)))
+    print("Image space is {0}.".format(len(img)))
     print("Using a quadtree representation the saved space is {0}.".format(q.count()))
