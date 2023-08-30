@@ -87,7 +87,7 @@ Often a called method has to know the context of the invocation. As an example, 
 
 ![Worhole pattern](wormhole.png)
 
-This technique does not require to modify the API in order to pass the callee context to the called method nor to introduce new calls into the existing sequence of calls. With traditional programming techniques you have just two mechanisms to realize the wormhole pattern: to add some parameters to the methods (i.e., by polluting the API) or to exploit a shared memory to store the context (i.e., by tightly coupling the program to the presence of that area). In python, it is possible to avoid this problems by exploiting meta-classes and decorators.
+This technique does not require to modify the API in order to pass the callee context to the called method nor to introduce new calls into the existing sequence of calls. With traditional programming techniques you have just two mechanisms to realize the wormhole pattern: to add some parameters to the methods (i.e., by polluting the API) or to exploit a shared memory to store the context (i.e., by tightly coupling the program to the presence of that area). In Python, it is possible to avoid this problems by exploiting meta-classes and decorators.
 
 Let us consider the classic example of the bank account as depicted in the following code.
 
@@ -154,7 +154,7 @@ if __name__ == '__main__':
         print("the account #{0} contains {1}€".format(number, atm1.balance(number)))
 ```
 
-**Note** that the code provided **CAN'T** changed.
+**Note** that the code provided **CAN'T** be changed.
 
 ### Expected output:
 
