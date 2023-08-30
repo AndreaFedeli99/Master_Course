@@ -1,5 +1,4 @@
 from collections import deque
-from types import FunctionType
 
 if __name__ == "__main__":
     from editor import *
