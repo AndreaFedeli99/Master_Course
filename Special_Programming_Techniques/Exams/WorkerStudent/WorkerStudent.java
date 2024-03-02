@@ -1,0 +1,1 @@
+public interface WorkerStudent extends StudentI, WorkerI {}
