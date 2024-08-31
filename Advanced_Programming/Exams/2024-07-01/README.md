@@ -46,14 +46,14 @@ if __name__ == "__main__":
 ### Expected output:
 
 ```
-Trials.Division's Primality Test            25 :- False
-Trials-Division's Primality Test           127 :- False
-Trials-Division's Primality Test          8191 :- False
-Lucas-Lehemer's Primality Test          131071 :- False
+Trials-Division's Primality Test            25 :- False
+Trials-Division's Primality Test           127 :- True
+Trials-Division's Primality Test          8191 :- True
+Lucas-Lehemer's Primality Test          131071 :- True
 Little Fermat's Primality Test          524286 :- False
-Little Fermat's Primality Test          524287 :- False
+Little Fermat's Primality Test          524287 :- True
 Little Fermat's Primality Test          524288 :- False
-Little Fermat's Primality Test      2147483647 :- False
+Little Fermat's Primality Test      2147483647 :- True
 ```
 
 ## Exercise 2
