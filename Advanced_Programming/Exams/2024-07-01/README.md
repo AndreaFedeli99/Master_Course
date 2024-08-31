@@ -9,12 +9,12 @@ To verify that a number is prime is considered a trivial task for a computer sci
 Fortunately in the years, several mathematicians proposed different alforithms to check the primality of big numbers. Just to cite a few *Lucas-Lehmer* and *Fermat's Little Theorem*.
 
 The **Lucas-Lehmer** test works as follows. Let $M^p = 2^p-1$ be the *Mersenne number* to test with *p* an odd prime. The primality of *p* can be efficiently checked with a simple algorithm like trial division since *p* is exponentially smaller than $M^p$. Define a sequence { s_i } for all $i \geq 0$ by
-$$
+```math
 s_i = \begin{cases}
     4 & \text{if } i = 0\\
     s^2_{i-1} - 2 & \text{otherwise}
 \end{cases}
-$$
+```
 Then $M^p$ is prime if and only if $s_{p-2} \equiv 0 \pmod{M^p}$. The number $s_{p-2} \pmod{M^p}$ is called the Lucas_Lehmer residue of *p*.
 
 **Fermat's little theorem** states that if *p* is prime and $0 < a < p$, then $a^{p-1} \equiv 1 \pmod{p}$. If we want to test wheter *p* is prime, then we can pick random *a*'s in the interval and see whether the equality holds. If the equality does not hold for a value of *a*, then *p* is not prime. If the equality does hold for many values of *a*, then we can say that *p* is **probably** prime.
