@@ -162,7 +162,7 @@ from Gollum import Gollum
 
 from ApplySpell import *
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     print("s should be a Stack!!!")
     s = Stack(5)
     print(s)
