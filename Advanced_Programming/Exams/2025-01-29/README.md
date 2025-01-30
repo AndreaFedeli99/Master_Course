@@ -59,7 +59,7 @@ All the solutions that use any Python module, that use any numerical data repres
 ### Test example:
 
 ```py
-from peano import zero, succ, add, sub, mult, div, convert, evaluate
+from peano import zero, succ, add, sub, mult, div, convert, evaluate, NegativeNumber, DivisionByZero
 
 if __name__ == "__main__":
     z = zero()
@@ -67,18 +67,24 @@ if __name__ == "__main__":
     two = succ(succ(zero()))
     three = succ(succ(succ(zero())))
     print(f"Zero :- {z}\nOne :- {one}\nTwo :- {two}\nThree :- {three}\n")
-    print(f"Zero :- {evaluate(z)}\nOne :- {evaluate(one)}\nTwo :- {evaluate(two)}\nThree :- {evaluate(three)}\n")
+    print(f"0 :- {evaluate(z)}\nsucc(0) :- {evaluate(one)}\nsucc(succ(0)) :- {evaluate(two)}\nsucc(succ(succ(0))) :- {evaluate(three)}\n")
 
     print(f"15 + 8 = 23 :- {evaluate(add(convert(15), convert(8)))}")
     print(f"25 - 7 = 18 :- {evaluate(sub(convert(25), convert(7)))}")
+    print("5 - 23 = -18 :-")
     try:
-        print(f"5 - 23 = -18 {evaluate(sub(convert(5), convert(23)))}")
+        print(evaluate(sub(convert(5), convert(23))), "\n")
     except NegativeNumber:
-        print("Subtraction must return a positive number!")
+        print("Subtraction must return a positive number!\n")
 
-    print(f"7 * 6 = 42 :- {evaluate(mult(convert(7), convert(8)))}")
+    print(f"7 * 6 = 42 :- {evaluate(mult(convert(7), convert(6)))}")
     print(f"28 / 7 = 4 :- {evaluate(div(convert(28), convert(7)))}")
     print(f"25 / 2 = 12 :- {evaluate(div(convert(25), convert(2)))}")
+    print("50 / 0 = err :-")
+    try:
+        print(evaluate(div(convert(50), convert(0))), "\n")
+    except DivisionByZero:
+        print("Division by 0 is undefined!")
 ```
 
 ### Output:
@@ -89,18 +95,21 @@ One :- succ(0)
 Two :- succ(succ(0))
 Three :- succ(succ(succ(0)))
 
-Zero :- 0
-One :- 1
-Two :- 2
-Three :- 3
+0 :- 0
+succ(0) :- 1
+succ(succ(0)) :- 2
+succ(succ(succ(0))) :- 3
 
 15 + 8 = 23 :- 23
-27 - 5 = 18 :- 18
-    raise NegativeNumber
-NegativeNumber: Subtraction must return a positive number!
+25 - 7 = 18 :- 18
+5 - 23 = -18 :-
+Subtraction must return a positive number!
+
 7 * 6 = 42 :- 42
-28 / 7 = 4 := 4
-25 / 2 = 12 := 12
+28 / 7 = 4 :- 4
+25 / 2 = 12 :- 12
+50 / 0 = err :-
+Division by 0 is undefined!
 ```
 
 **Note** that your program must be general and not tailored on the examples.
