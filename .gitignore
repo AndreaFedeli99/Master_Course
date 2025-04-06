@@ -55,30 +55,30 @@ crashlytics-build.properties
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
-.idea/**/dictionaries
-.idea/**/shelf
+Distributed_&_Pervasive_Systems/**/**/.idea/**/workspace.xml
+Distributed_&_Pervasive_Systems/**/**/.idea/**/tasks.xml
+Distributed_&_Pervasive_Systems/**/**/.idea/**/usage.statistics.xml
+Distributed_&_Pervasive_Systems/**/**/.idea/**/dictionaries
+Distributed_&_Pervasive_Systems/**/**/.idea/**/shelf
 
 # AWS User-specific
-.idea/**/aws.xml
+Distributed_&_Pervasive_Systems/**/**/.idea/**/aws.xml
 
 # Generated files
-.idea/**/contentModel.xml
+Distributed_&_Pervasive_Systems/**/**/.idea/**/contentModel.xml
 
 # Sensitive or high-churn files
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
-.idea/**/dbnavigator.xml
+Distributed_&_Pervasive_Systems/**/**/.idea/**/dataSources/
+Distributed_&_Pervasive_Systems/**/**/.idea/**/dataSources.ids
+Distributed_&_Pervasive_Systems/**/**/.idea/**/dataSources.local.xml
+Distributed_&_Pervasive_Systems/**/**/.idea/**/sqlDataSources.xml
+Distributed_&_Pervasive_Systems/**/**/.idea/**/dynamic.xml
+Distributed_&_Pervasive_Systems/**/**/.idea/**/uiDesigner.xml
+Distributed_&_Pervasive_Systems/**/**/.idea/**/dbnavigator.xml
 
 # Gradle
-.idea/**/gradle.xml
-.idea/**/libraries
+Distributed_&_Pervasive_Systems/**/**/.idea/**/gradle.xml
+Distributed_&_Pervasive_Systems/**/**/.idea/**/libraries
 
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
@@ -94,28 +94,28 @@ crashlytics-build.properties
 # *.ipr
 
 # CMake
-cmake-build-*/
+Distributed_&_Pervasive_Systems/**/**/cmake-build-*/
 
 # Mongo Explorer plugin
-.idea/**/mongoSettings.xml
+Distributed_&_Pervasive_Systems/**/**/.idea/**/mongoSettings.xml
 
 # File-based project format
-*.iws
+Distributed_&_Pervasive_Systems/**/**/*.iws
 
 # IntelliJ
-out/
+Distributed_&_Pervasive_Systems/**/**/out/
 
 # mpeltonen/sbt-idea plugin
-.idea_modules/
+Distributed_&_Pervasive_Systems/**/**/.idea_modules/
 
 # JIRA plugin
 atlassian-ide-plugin.xml
 
 # Cursive Clojure plugin
-.idea/replstate.xml
+Distributed_&_Pervasive_Systems/**/**/.idea/replstate.xml
 
 # SonarLint plugin
-.idea/sonarlint/
+Distributed_&_Pervasive_Systems/**/**/.idea/sonarlint/
 
 # Crashlytics plugin (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml
@@ -124,7 +124,7 @@ crashlytics-build.properties
 fabric.properties
 
 # Editor-based Rest Client
-.idea/httpRequests
+Distributed_&_Pervasive_Systems/**/**/.idea/httpRequests
 
 # Android studio 3.1+ serialized cache file
-.idea/caches/build_file_checksums.ser
+Distributed_&_Pervasive_Systems/**/**/.idea/caches/build_file_checksums.ser
